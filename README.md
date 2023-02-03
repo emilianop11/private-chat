@@ -3,6 +3,8 @@
 This is a js library to encrypt and decrypt messages that are private between two or more adresses in the blockchain. To have more context refer to: https://github.com/emilianop11/private-blockchain-chat This payload is what the chat struct in the contract will store in the messages array.
 This library will act as a helper for the sender and receiver parties so they can encrypt and decrypt the messages that flow between them.
 Notice that all of this encryption and decryption is happening off chain, client side. On chain we are just storing the payload which is a base64 encoded stringified json with this format
+
+```
 {
     payloadHash: "md5 of unencrypted content"
     s: {
@@ -14,6 +16,7 @@ Notice that all of this encryption and decryption is happening off chain, client
         p: "encryptedDataString"
     }]
 }
+```
 
 payloadHash: we prefer md5 instead of sha256 since its shorter. this field is
 used to make sure that the same string is being encrypted for all parties. So all decrypting parties can check the result they got against this hash.
