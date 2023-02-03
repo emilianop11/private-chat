@@ -1,5 +1,5 @@
-const { expect } = require("chai");
 const {ethers} = require("ethers");
+const { expect } = require("chai");
 const {Encrypt, Decrypt} = require("../index");
 let wallet1, wallet2, wallet3;
 
@@ -42,5 +42,17 @@ describe('General', function () {
 
         const endMessage3 = await Decrypt(wallet3.publicKey, wallet3.privateKey, encryptedJson);
         expect(endMessage3).to.equal("my test secret message");
+    })
+
+    it('should reject if public key was not included in message', async () => {
+        const encryptedJson = await Encrypt("my test secret message", wallet1.publicKey, [wallet2.publicKey])
+        const endMessage1 = await Decrypt(wallet1.publicKey, wallet1.privateKey, encryptedJson);
+        expect(endMessage1).to.equal("my test secret message");
+        try {   
+            await Decrypt(wallet3.publicKey, wallet3.privateKey, encryptedJson)
+        } catch (e) {
+            expect(e.message).to.equal("pub key not found in msg object");
+        }
+        
     })
 });
