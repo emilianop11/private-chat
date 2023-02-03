@@ -45,6 +45,6 @@ The decryption algorithm is as follows:
 ## retrieving the publickey of an address that will receive the message
 
 this is a problem that still needs an elegant solution.
-In the first implementation, and address before getting involved in a chat would need to call a smart contract (lets call it pubkey mapper) where they will send their public key as a parameter in the tx. The smart contract will store the mapping between the address and the pubkey
+In the first implementation, an address before getting involved in a chat would need to call a smart contract (lets call it pubkey mapper) where they will send their public key as a parameter in the tx. The smart contract will store the mapping between the address and the pubkey.
 Any sender that wants to send a message to an address would need to query the contract to retrieve the pubkey.
 This also has the benefit that any address wont be able to receive messages until their owner explicitly called the pukkey mapper contract
