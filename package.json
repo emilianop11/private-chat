@@ -4,7 +4,7 @@
   "description": "A module to encrypt and decrypt private messages in the blockchain",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,13 @@
   },
   "homepage": "https://github.com/emilianop11/private-chat#readme",
   "dependencies": {
-    "md5": "^2.3.0"
+    "eth-crypto": "^2.5.0",
+    "hardhat": "^2.12.6",
+    "md5": "^2.3.0",
+    "mocha": "^10.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "ethers": "^5.5.4"
   }
 }
