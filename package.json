@@ -1,0 +1,33 @@
+{
+  "name": "private-chat",
+  "version": "1.0.0",
+  "description": "A module to encrypt and decrypt private messages in the blockchain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilianop11/private-chat.git"
+  },
+  "keywords": [
+    "solidity",
+    "struct",
+    "parsing",
+    "encryption",
+    "decryption",
+    "json",
+    "blockchain",
+    "ethers",
+    "ethereum"
+  ],
+  "author": "Emiliano Pelliccioni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilianop11/private-chat/issues"
+  },
+  "homepage": "https://github.com/emilianop11/private-chat#readme",
+  "dependencies": {
+    "md5": "^2.3.0"
+  }
+}

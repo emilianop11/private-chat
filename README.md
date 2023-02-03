@@ -6,12 +6,12 @@ Notice that all of this encryption and decryption is happening off chain, client
 {
     payloadHash: "md5 of unencrypted content"
     s: {
-        p: "public key of sender",
-        c: "encryptedDataString",
+        k: "public key of sender",
+        p: "encryptedDataString",
     }
     r: [{
-        p: "public key of receiver",
-        c: "encryptedDataString"
+        k: "public key of receiver",
+        p: "encryptedDataString"
     }]
 }
 
@@ -20,7 +20,8 @@ used to make sure that the same string is being encrypted for all parties. So al
 
 "s" stands for sender
 "r" stands for receiver
-"c" stands for content
+"p" stands for payload
+"k" stands for key
 
 The encryption algorithm is as follows:
 
