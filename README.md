@@ -1,10 +1,8 @@
 # private-chat
 
-This is a js library to encrypt and decrypt messages that are private between two or more adresses in the blockchain. To have more context refer to: https://github.com/emilianop11/private-blockchain-chat
-
-this payload is what the chat struct in the contract will store in the messages array
-
-payload will be a base64 encoded stringified json with this format
+This is a js library to encrypt and decrypt messages that are private between two or more adresses in the blockchain. To have more context refer to: https://github.com/emilianop11/private-blockchain-chat This payload is what the chat struct in the contract will store in the messages array.
+This library will act as a helper for the sender and receiver parties so they can encrypt and decrypt the messages that flow between them.
+Notice that all of this encryption and decryption is happening off chain, client side. On chain we are just storing the payload which is a base64 encoded stringified json with this format
 {
     payloadHash: "md5 of unencrypted content"
     s: {
@@ -18,7 +16,7 @@ payload will be a base64 encoded stringified json with this format
 }
 
 payloadHash: we prefer md5 instead of sha256 since its shorter. this field is
-used to make sure that the same string is being encrypted for both parties.
+used to make sure that the same string is being encrypted for all parties. So all decrypting parties can check the result they got against this hash.
 
 "s" stands for sender
 "r" stands for receiver
@@ -28,7 +26,7 @@ The encryption algorithm is as follows:
 
 1) take the desired message that the address wants to send, and compute the md5 hash of the content. This will be stored in payloadHash
 
-2) take the desired message that the address wants to send and encrypt it n + 1 times. Where n is the amount of receivers. Each encryption should use the recipients public key (from where do we get the pubkey of receipients? read below)
+2) take the desired message that the address wants to send and encrypt it n + 1 times. Where n is the amount of receivers. Each encryption should use the recipients public key (from where do we get the pubkey of receipients? read below) and one for the sender.
 
 3) construct the json as described above and base64 encode it.
 
